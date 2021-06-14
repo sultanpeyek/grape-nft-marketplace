@@ -59,7 +59,7 @@ export const ENDPOINTS = [
   },
 ];
 
-const DEFAULT = ENDPOINTS[4].endpoint; // set devnet as default
+const DEFAULT = ENDPOINTS[4].endpoint; // Set devnet as default
 
 interface ConnectionConfig {
   connection: Connection;
@@ -76,7 +76,7 @@ const ConnectionContext = React.createContext<ConnectionConfig>({
   setEndpoint: () => {},
   connection: new Connection(DEFAULT, 'recent'),
   sendConnection: new Connection(DEFAULT, 'recent'),
-  env: ENDPOINTS[0].name,
+  env: ENDPOINTS[4].name, // Set devnet as default
   tokens: [],
   tokenMap: new Map<string, TokenInfo>(),
 });
@@ -84,7 +84,7 @@ const ConnectionContext = React.createContext<ConnectionConfig>({
 export function ConnectionProvider({ children = undefined as any }) {
   const [endpoint, setEndpoint] = useLocalStorageState(
     'connectionEndpoint',
-    ENDPOINTS[0].endpoint,
+    ENDPOINTS[4].endpoint, // Set devnet as default
   );
 
   const connection = useMemo(
@@ -97,7 +97,7 @@ export function ConnectionProvider({ children = undefined as any }) {
   );
 
   const env =
-    ENDPOINTS.find(end => end.endpoint === endpoint)?.name || ENDPOINTS[0].name;
+    ENDPOINTS.find(end => end.endpoint === endpoint)?.name || ENDPOINTS[4].name; // Set devnet as default
 
   const [tokens, setTokens] = useState<TokenInfo[]>([]);
   const [tokenMap, setTokenMap] = useState<Map<string, TokenInfo>>(new Map());
