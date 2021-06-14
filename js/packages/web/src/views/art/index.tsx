@@ -63,10 +63,10 @@ export const ArtView = () => {
             md={{ span: 12 }}
             style={{ textAlign: 'left', fontSize: '1.4rem' }}
           >
-            <div style={{ fontWeight: 700, fontSize: '4rem' }}>{art.title}</div>
+            <div style={{ fontWeight: 700, fontSize: '4rem', color: '#ff3ad8' }}>{art.title}</div>
             <br />
-            <div className="info-header">CREATED BY</div>
-            <div className="creators">
+            <div className="info-header" style={{ color: '#ff3ad8' }}>CREATED BY</div>
+            <div className="creators" style={{ color: '#ff3ad8' }}>
               {(art.creators || []).map(creator => {
                 return (
                   <div

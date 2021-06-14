@@ -59,7 +59,7 @@ export const ENDPOINTS = [
   },
 ];
 
-const DEFAULT = ENDPOINTS[0].endpoint;
+const DEFAULT = ENDPOINTS[4].endpoint; // set devnet as default
 
 interface ConnectionConfig {
   connection: Connection;
