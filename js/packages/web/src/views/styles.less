@@ -387,14 +387,6 @@ div.ant-card-bordered {
   justify-content: center
 }
 
-.auction-container {
-  background: #171717 !important;
-}
-
-.auction-image {
-  margin-left: 0 !important;
-}
-
 .placebid {
   color: #f38aff;
 }
@@ -410,7 +402,7 @@ div.ant-card-bordered {
 .ant-tabs-bottom > .ant-tabs-nav::before,
 .ant-tabs-top > div > .ant-tabs-nav::before,
 .ant-tabs-bottom > div > .ant-tabs-nav::before {
-  border-bottom-color: #171717;
+  border-bottom-color: transparent;
 }
 
 // Button Design
@@ -421,6 +413,8 @@ div.ant-card-bordered {
   background: linear-gradient(180deg, #e56ff3 0%, #ed4dff 100%);
   border-color: #f38aff;
   font-weight: 700;
+  text-overflow: ellipsis;
+  overflow: hidden
 }
 
 .ant-btn-primary:hover, .ant-btn-primary:focus {
@@ -428,8 +422,71 @@ div.ant-card-bordered {
   border-color: #f38aff;
 }
 
+.ant-btn {
+  border-radius: 8px;
+}
+
+
 // Steps Design
 
 .ant-steps-dot {
   overflow-x: visible !important;
+}
+
+// PresaleBanner Design
+
+.presale {
+  width: 100%;
+}
+
+.presale-info .auction-container {
+  padding: 24px !important;
+}
+
+.presale-info .auction-container > .ant-col > div {
+  min-width: auto !important;
+}
+
+.presale-info a .ant-btn {
+  max-width: 100% !important;;
+}
+
+.presale-info .auction-container .ant-col > div {
+  width: 100% !important;
+}
+
+// Art Title Design
+
+.art-title {
+  font-size: 32px !important;
+}
+
+// Auction Container Design
+
+.auction-container {
+  overflow-x: auto;
+  background: #171717 !important;
+}
+
+.auction-container .ant-statistic-title,
+.auction-container .info-header {
+  font-size: 16px !important;
+}
+
+.auction-container .info-header {
+  padding-top: 1px;
+  padding-bottom: 2px;
+}
+
+.auction-container .ant-statistic-content,
+.auction-container .cd-number {
+  font-size: 32px !important;
+}
+
+.auction-container .cd-label {
+  font-size: 14px !important;
+}
+
+.auction-image {
+  margin-left: 0 !important;
 }
