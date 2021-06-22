@@ -275,7 +275,8 @@ export function Notifications() {
       content={content}
       trigger="click"
     >
-      <h1 className="title">M</h1>
+      <h1 className="title">GRAPE NFT Marketplace</h1>
+      <img className="indexLogo" src="/grape_logo.png" alt="" />
     </Popover>
   );
 

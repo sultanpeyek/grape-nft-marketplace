@@ -310,3 +310,112 @@
   font-size: 0.8rem;
   margin-bottom: 10px;
 }
+
+/* GRAPE Overrides */
+
+// Base
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-ExtraBold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  font-family: "Gilroy", sans-serif;
+}
+
+body {
+  background-image: linear-gradient(180deg, #050814 6%, rgba(5, 8, 20, 0.9) 14%, rgba(5, 8, 20, 0.8) 25%, rgba(0, 0, 0, 0.1)), url(/grid.png);
+  background-position: 0px 0px, 50% 50%;
+  background-size: auto, cover;
+  background-repeat: repeat, no-repeat;
+  background-attachment: fixed, fixed;
+}
+
+// AppBar
+
+.title {
+  display: none !important;
+}
+
+.indexLogo {
+  height: 35px;
+  padding: 16px 8px;
+  box-sizing: content-box;
+  position: relative;
+  top: -3px;
+}
+
+.divider {
+  margin-left: 14px;
+}
+
+.app-bar-box {
+  background: #171717 !important;
+}
+
+// Card Design
+
+.ant-card {
+  background: #171717 !important;
+}
+
+.art-card .ant-card-body {
+  background: #171717 !important;
+}
+
+div.ant-card-bordered {
+  border-color: #282828;
+}
+
+.auction-container {
+  background: #171717 !important;
+}
+
+.ant-card-cover {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center
+}
+
+.auction-image {
+  margin-left: 0 !important;
+}
+
+// Tab Design
+
+.ant-tabs-content h2 {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.ant-tabs-top > .ant-tabs-nav::before,
+.ant-tabs-bottom > .ant-tabs-nav::before,
+.ant-tabs-top > div > .ant-tabs-nav::before,
+.ant-tabs-bottom > div > .ant-tabs-nav::before {
+  border-bottom-color: #171717;
+}
+
+// Button Design
+
+.action-btn {
+  background: linear-gradient(180deg, #e56ff3 0%, #ed4dff 100%);
+  border-color: #f38aff;
+}
+
+.ant-btn-primary:hover, .ant-btn-primary:focus {
+  color: #f38aff;
+  border-color: #f38aff;
+}
