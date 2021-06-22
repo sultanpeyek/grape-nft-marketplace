@@ -314,7 +314,7 @@ export const AuctionCard = ({
                       ◎ {formatAmount(balance.balance, 2)}{' '}
                       <span style={{ color: '#717171' }}>available</span>
                     </div>
-                    <Link
+                    {/* <Link
                       to="/addfunds"
                       style={{
                         float: 'right',
@@ -323,7 +323,7 @@ export const AuctionCard = ({
                       }}
                     >
                       Add funds
-                    </Link>
+                    </Link> */}
                   </div>
 
                   <br />
