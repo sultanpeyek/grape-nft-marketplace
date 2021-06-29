@@ -1,9 +1,4 @@
-import {
-  Keypair,
-  Connection,
-  PublicKey,
-  TransactionInstruction,
-} from '@solana/web3.js';
+import { Keypair, Connection, TransactionInstruction } from '@solana/web3.js';
 import {
   Vault,
   ParsedAccount,
@@ -58,7 +53,6 @@ export async function unwindVault(
           vault.info.redeemTreasury,
           decoded.priceMint,
           vault.info.pricingLookupAddress,
-          false,
         );
 
       signers.push(cvSigners);
