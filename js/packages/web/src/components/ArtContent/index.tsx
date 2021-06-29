@@ -209,15 +209,7 @@ export const ArtContent = ({
     <CachedImageContent uri={uri}
       className={className}
       preview={preview}
-      wrapperClassName={className}
-      loading="lazy"
-      wrapperStyle={{ ...style }}
-      onLoad={e => {
-        setLoaded(true);
-      }}
-      placeholder={<ThreeDots />}
-      {...(loaded ? {} : { height: 300 })}
-    />
+      style={style}/>
   );
 
   return <div ref={ref as any}>{content}</div>;
