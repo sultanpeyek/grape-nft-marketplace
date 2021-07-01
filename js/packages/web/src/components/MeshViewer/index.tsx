@@ -1,34 +1,7 @@
-/* tslint:disable */
 import React from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { TouchableOrbitControls } from './utils';
-import '@google/model-viewer/dist/model-viewer';
-
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'model-viewer': React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      >;
-    }
-  }
-}
-
-declare module 'react' {
-  interface Attributes {
-    width?: any;
-    height?: any;
-    css?: any;
-    'auto-rotate-delay'?: any;
-    'auto-rotate'?: any;
-    'auto-play'?: any;
-    'camera-controls'?: any;
-    src?: any;
-    'ar-status'?: any;
-  }
-}
 
 // const OrbitControls = oc(THREE);
 
@@ -82,7 +55,7 @@ export class MeshViewer extends React.Component<MeshViewerProps, {}> {
       return;
     }
     // === THREE.JS CODE START ===
-    this.renderer = new THREE.WebGLRenderer({ antialias: true });
+    this.renderer = new THREE.WebGLRenderer({ antialias: true  });
 
     const width = this.threeMountRef.current.clientWidth;
     const height = this.threeMountRef.current.clientHeight;
@@ -141,7 +114,7 @@ export class MeshViewer extends React.Component<MeshViewerProps, {}> {
 
     this.gltfLoader.load(
       meshURL,
-      gltf => {
+      (gltf) => {
         const gltfScene = gltf.scene;
 
         if (
@@ -242,16 +215,11 @@ export class MeshViewer extends React.Component<MeshViewerProps, {}> {
 
   render() {
     return (
-      <div width="328" height="250" className="sc-hlTvYk iciwYU">
-        <model-viewer
-          auto-rotate-delay="0"
-          auto-rotate="true"
-          auto-play="true"
-          camera-controls="true"
-          src={this.props.url}
-          ar-status="not-presenting"
-        ></model-viewer>
-      </div>
+      <div
+        ref={this.threeMountRef}
+        style={{ width: `100%`, height: `100%`, minHeight: `300px`, minWidth: 150, maxHeight: 300, ...this.props.style }}
+        className={`three-orbit ${this.props.className || ''}`.trim()}
+      />
     );
   }
 }
