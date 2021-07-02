@@ -1,7 +1,17 @@
+/* tslint:disable */
 import React from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { TouchableOrbitControls } from './utils';
+import '@google/model-viewer/dist/model-viewer';
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'model-viewer': any;
+    }
+  }
+}
 
 // const OrbitControls = oc(THREE);
 
@@ -215,11 +225,19 @@ export class MeshViewer extends React.Component<MeshViewerProps, {}> {
 
   render() {
     return (
-      <div
-        ref={this.threeMountRef}
-        style={{ width: `100%`, height: `100%`, minHeight: `300px`, minWidth: 150, maxHeight: 300, ...this.props.style }}
-        className={`three-orbit ${this.props.className || ''}`.trim()}
-      />
+      <>
+        <model-viewer
+          auto-rotate-delay="0"
+          auto-rotate="true"
+          auto-play="true"
+          camera-controls="true"
+          src={this.props.url}
+          ar-status="not-presenting"
+          style={{
+            height: "100vh"
+          }}
+        ></model-viewer>
+      </>
     );
   }
 }

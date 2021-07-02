@@ -536,7 +536,7 @@ const CategoryStep = (props: {
       </Row>
       <Row justify={width < 768 ? 'center' : 'start'}>
         <Col>
-          {/* <Row>
+          <Row>
             <Button
               className="type-btn"
               size="large"
@@ -578,7 +578,7 @@ const CategoryStep = (props: {
                 </div>
               </div>
             </Button>
-          </Row> */}
+          </Row>
           <Row>
             <Button
               className="type-btn"
