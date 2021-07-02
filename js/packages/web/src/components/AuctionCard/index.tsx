@@ -63,7 +63,7 @@ function useGapTickCheck(
               const higherExpectedAmount = expected * ((100 + gapTick) / 100);
 
               return higherExpectedAmount > toLamportVal;
-            } else if (expected == toLamportVal) {
+            } else if (expected === toLamportVal) {
               // If gap tick is set, no way you can bid in this case - you must bid higher.
               return true;
             }
@@ -418,7 +418,7 @@ export const AuctionCard = ({
                       ◎ {formatAmount(balance.balance, 2)}{' '}
                       <span style={{ color: '#717171' }}>available</span>
                     </div>
-                    {/* <Link
+                    <Link
                       to="/addfunds"
                       style={{
                         float: 'right',
@@ -427,7 +427,7 @@ export const AuctionCard = ({
                       }}
                     >
                       Add funds
-                    </Link> */}
+                    </Link>
                   </div>
 
                   <br />

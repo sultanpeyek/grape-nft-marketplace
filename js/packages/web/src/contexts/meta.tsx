@@ -33,7 +33,6 @@ import {
 } from '@oyster/common';
 import { MintInfo } from '@solana/spl-token';
 import { Connection, PublicKey, PublicKeyAndAccount } from '@solana/web3.js';
-import BN from 'bn.js';
 import React, {
   useCallback,
   useContext,
@@ -43,7 +42,6 @@ import React, {
 } from 'react';
 import {
   AuctionManager,
-  AuctionManagerStatus,
   BidRedemptionTicket,
   decodeAuctionManager,
   decodeBidRedemptionTicket,
@@ -254,6 +252,8 @@ export function MetaProvider({ children = null as any }) {
       const values = Object.values(
         tempCache.metadataByMint,
       ) as ParsedAccount<Metadata>[];
+
+      tempCache.metadata = new Array(values.length);
       for (let i = 0; i < values.length; i++) {
         const metadata = values[i];
         if (
@@ -267,13 +267,16 @@ export function MetaProvider({ children = null as any }) {
           tempCache.metadataByMasterEdition[
             metadata.info?.masterEdition?.toBase58() || ''
           ] = metadata;
+
+          tempCache.metadata.push(metadata);
         } else {
+
           delete tempCache.metadataByMint[metadata.info.mint.toBase58() || ''];
         }
       }
 
       console.log('------->init finished');
-      tempCache.metadata = values;
+      tempCache.metadata = tempCache.metadata.filter(m => m);
       setState({
         ...tempCache,
       });
@@ -372,17 +375,20 @@ export function MetaProvider({ children = null as any }) {
           isMetadataPartOfStore(result, store, whitelistedCreatorsByCreator)
         ) {
           await result.info.init();
-          setState((data) => ({
+          setState(data => ({
             ...data,
-            metadata: [...data.metadata.filter(m => m.pubkey.equals(pubkey)), result],
+            metadata: [
+              ...data.metadata.filter(m => !m.pubkey.equals(pubkey)),
+              result,
+            ],
             metadataByMasterEdition: {
               ...data.metadataByMasterEdition,
               [result.info.masterEdition?.toBase58() || '']: result,
             },
             metadataByMint: {
               ...data.metadataByMint,
-              [result.info.mint.toBase58()]: result
-            }
+              [result.info.mint.toBase58()]: result,
+            },
           }));
         }
       },
@@ -628,25 +634,17 @@ const processMetaplexAccounts = async (
       const storeKey = new PublicKey(a.account.data.slice(1, 33));
       if (storeKey.toBase58() === STORE_ID) {
         const auctionManager = decodeAuctionManager(a.account.data);
-        // An initialized auction manager hasnt been validated, so we cant show it to users unless you're
-        // the one who made it, in which case we want it in memory so we can serve it as part of the Defective
-        // type of view for use in unwinding.
-        // Could have any kind of pictures in it.
-        if (
-          auctionManager.state.status !== AuctionManagerStatus.Initialized ||
-          auctionManager.state.status === AuctionManagerStatus.Initialized
-        ) {
-          const account: ParsedAccount<AuctionManager> = {
-            pubkey: a.pubkey,
-            account: a.account,
-            info: auctionManager,
-          };
-          setter(
-            'auctionManagersByAuction',
-            auctionManager.auction.toBase58(),
-            account,
-          );
-        }
+
+        const account: ParsedAccount<AuctionManager> = {
+          pubkey: a.pubkey,
+          account: a.account,
+          info: auctionManager,
+        };
+        setter(
+          'auctionManagersByAuction',
+          auctionManager.auction.toBase58(),
+          account,
+        );
       }
     } else if (a.account.data[0] === MetaplexKey.BidRedemptionTicketV1) {
       const ticket = decodeBidRedemptionTicket(a.account.data);
