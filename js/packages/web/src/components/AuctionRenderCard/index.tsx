@@ -17,10 +17,21 @@ export const AuctionRenderCard = (props: AuctionCard) => {
   const { auctionView } = props;
   const id = auctionView.thumbnail.metadata.pubkey;
   const art = useArt(id);
-  const creators = useCreators(auctionView);
+  const creators = [
+    {
+      address: '3WzjQZeBybrMn1jGskeAhnjX2m4RTUPXDkDDTJJmjcVZ',
+      verified: 1,
+      share: 10,
+      image: '',
+      name: '',
+      link: '',
+    },
+  ];
   const name = art?.title || ' ';
 
-  const tokenInfo = useTokenList().mainnetTokens.filter(m=>m.address == auctionView.auction.info.tokenMint)[0]
+  const tokenInfo = useTokenList().mainnetTokens.filter(
+    m => m.address == auctionView.auction.info.tokenMint,
+  )[0];
   const { status, amount } = useAuctionStatus(auctionView);
 
   const card = (
@@ -28,7 +39,9 @@ export const AuctionRenderCard = (props: AuctionCard) => {
       <div className={'card-art-info'}>
         <div className="auction-gray-wrapper">
           <div className={'card-artist-info'}>
-            <MetaAvatar creators={creators.length ? [creators[0]] : undefined} />
+            <MetaAvatar
+              creators={creators.length ? [creators[0]] : undefined}
+            />
             <span className={'artist-name'}>
               {creators[0]?.name ||
                 creators[0]?.address?.substr(0, 6) ||

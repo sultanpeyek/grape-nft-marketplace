@@ -20,9 +20,7 @@ export const ArtistCard = ({ artist }: { artist: Artist }) => {
     >
       <>
         <MetaAvatar creators={[artist]} size={64} />
-        <div className="artist-card-name">
-          {artist.name || shortenAddress(artist.address || '')}
-        </div>
+        <div className="artist-card-name">{`Soilets`}</div>
         <div className="artist-card-description">{artist.about}</div>
       </>
     </Card>

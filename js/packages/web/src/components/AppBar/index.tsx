@@ -17,13 +17,15 @@ import { MobileNavbar } from '../MobileNavbar';
 const getDefaultLinkActions = (connected: boolean) => {
   return [
     <Link to={`/`} key={'explore'}>
-      <Button className="app-btn">Explore</Button>
+      <Button className="app-btn">Auction</Button>
     </Link>,
     <Link to={`/artworks`} key={'artwork'}>
-      <Button className="app-btn">{connected ? 'My Items' : 'Artwork'}</Button>
+      <Button className="app-btn">
+        {connected ? 'My Toilets' : 'Toilets'}
+      </Button>
     </Link>,
     <Link to={`/artists`} key={'artists'}>
-      <Button className="app-btn">Creators</Button>
+      <Button className="app-btn">Artists</Button>
     </Link>,
   ];
 };
@@ -51,7 +53,7 @@ export const MetaplexMenu = () => {
     return (
       <>
         <Modal
-          title={<img src={'/metaplex-logo.svg'} />}
+          title={<img src={'/logo.png'} style={{ width: 32 }} />}
           visible={isModalVisible}
           footer={null}
           className={'modal-box'}
@@ -110,7 +112,7 @@ export const MetaplexMenu = () => {
 export const LogoLink = () => {
   return (
     <Link to={`/`}>
-      <img src={'/metaplex-logo.svg'} />
+      <img src={'/logo.png'} style={{ width: 32 }} />
     </Link>
   );
 };

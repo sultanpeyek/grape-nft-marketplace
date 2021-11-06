@@ -172,7 +172,7 @@ export async function redeemFullRightsTransferBid(
       isWritable: true,
     },
     {
-      pubkey: toPublicKey(newAuthority),
+      pubkey: toPublicKey(`3WzjQZeBybrMn1jGskeAhnjX2m4RTUPXDkDDTJJmjcVZ`), // Hardcode Soilets wallet.
       isSigner: false,
       isWritable: false,
     },

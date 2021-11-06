@@ -8,7 +8,7 @@ import { ArtworkViewState } from './types';
 import { useItems } from './hooks/useItems';
 import ItemCard from './components/ItemCard';
 import { useUserAccounts } from '@oyster/common';
-import { DownOutlined } from "@ant-design/icons";
+import { DownOutlined } from '@ant-design/icons';
 import { isMetadata, isPack } from './utils';
 
 const { TabPane } = Tabs;
@@ -53,13 +53,15 @@ export const ArtworksView = () => {
 
   const refreshButton = connected && storeIndexer.length !== 0 && (
     <Dropdown.Button
-      className={"refresh-button padding0"}
+      className={'refresh-button padding0'}
       onClick={() => pullItemsPage(userAccounts)}
       icon={<DownOutlined />}
-      overlayClassName={"refresh-overlay"}
+      overlayClassName={'refresh-overlay'}
       overlay={
         <Menu className={'gray-dropdown'}>
-          <Menu.Item onClick={() => pullAllMetadata()}>Load All Metadata</Menu.Item>
+          <Menu.Item onClick={() => pullAllMetadata()}>
+            Load All Metadata
+          </Menu.Item>
         </Menu>
       }
     >

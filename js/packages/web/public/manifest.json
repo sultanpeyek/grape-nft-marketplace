@@ -1,10 +1,10 @@
 {
-  "name": "Metaplex NFT Marketplace",
-  "short_name": "Metaplex NFT Marketplace",
+  "name": "Soilets",
+  "short_name": "Soilets",
   "display": "standalone",
   "start_url": "./",
-  "theme_color": "#002140",
-  "background_color": "#001529",
+  "theme_color": "#000000",
+  "background_color": "#000000",
   "icons": [
     {
       "src": "/favicon-16x16.png",

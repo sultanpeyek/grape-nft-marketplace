@@ -17,7 +17,12 @@ export const ArtistView = () => {
             const id = m.pubkey;
             return (
               <Link to={`/art/${id}`} key={idx}>
-                <ArtCard key={id} pubkey={m.pubkey} preview={false} artView={true}/>
+                <ArtCard
+                  key={id}
+                  pubkey={m.pubkey}
+                  preview={true}
+                  artView={true}
+                />
               </Link>
             );
           })
@@ -35,7 +40,7 @@ export const ArtistView = () => {
           <Col span={24}>
             <h2>
               {/* <MetaAvatar creators={creator ? [creator] : []} size={100} /> */}
-              {creator?.info.name || creator?.info.address}
+              {`Soilets`}
             </h2>
             <br />
             <div className="info-header">ABOUT THE CREATOR</div>

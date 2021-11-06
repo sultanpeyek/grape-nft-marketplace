@@ -70,15 +70,55 @@ export const ArtCreateView = () => {
     useState<{ metadataAccount: StringPublicKey } | undefined>(undefined);
   const [files, setFiles] = useState<File[]>([]);
   const [attributes, setAttributes] = useState<IMetadataExtension>({
-    name: '',
-    symbol: '',
-    description: '',
-    external_url: '',
+    name: 'PLANET TOI: THE ORIGIN',
+    symbol: 'TOILET',
+    description:
+      'After their appearance in the exhibition of Ciccago Empire that was held at the Planet of C*SXS, TOPIA-3000 was asked by a meta-curator to make a living maquette of their "3035-EXAR001". In order to expose the origin of this model, the curator was spesifically asked for the ancient looks of the fabrication, so in the next exhibition people can see how the ancestors of Planet TOI made this model. Back in the 35 years BC, before the imaginative disaster destroyed the whole world of Planet TOI. This model was fabricated in various sizes in order to supply Lilliputians and the Giants, also other species of human in other planets. This particular model was also used to supply all living resources in the TOI planet and it could also be the exchange currency for any trades during those  years. The model itself is trying to see another point of view in how crisis of beauty and authorian are still existing in the planet. TOPIA-3000 shows clearly that the model since its early creation was created as something that is sacred and cannot be underestimated as is. The maquette will be ready for the exhibition that will take place in 3036 along with other living maquettes that are created by art collectives in the metaverse. For the time, place, and further information of reservation will be announced later on via "METAX: THE META NEWSPAPERS" in early 3036. /// Soilets are digital collectibles of 50 unique audiovisual Toilets vibing on the Solana blockchain. As a homage to the greatest sanitation revolution in the past 200 years and as the symbol of the degradation of the inner self, 6 to 7 Toilets minted biweekly until the end of 2021 in the auction format. /// Visual by NeedMoreSauce & Audio by Xin Lie.',
+    external_url: 'https://soilets.art',
     image: '',
     animation_url: undefined,
-    attributes: undefined,
-    seller_fee_basis_points: 0,
-    creators: [],
+    attributes: [
+      {
+        trait_type: 'Toilet Type',
+        value: 'PLANET TOI: THE ORIGIN',
+      },
+      {
+        trait_type: 'Visual Artist',
+        value: 'NeedMoreSauce',
+      },
+      {
+        trait_type: 'Audio Artist',
+        value: 'Xin Lie',
+      },
+      {
+        display_type: 'number',
+        trait_type: 'Batch',
+        value: 5,
+      },
+    ],
+    seller_fee_basis_points: 1000,
+    creators: [
+      {
+        address: '3WzjQZeBybrMn1jGskeAhnjX2m4RTUPXDkDDTJJmjcVZ',
+        share: 10,
+        verified: true,
+      },
+      {
+        address: '6ftJ84D4rgJDCyna5cPWPguiWPpGTYrb4uuhocBCQmXq',
+        share: 19,
+        verified: false,
+      },
+      {
+        address: 'FXidtAQea287sXtQh2cNQuFVEopDSHTe4A98Dn3pvtad', // Visual Artist
+        share: 43,
+        verified: false,
+      },
+      {
+        address: '3kTPfrfVa81om12ndJHQ3ENxW4H9WVHu6GiJxBPX4GzN', // Sound Artist
+        share: 28,
+        verified: false,
+      },
+    ],
     properties: {
       files: [],
       category: MetadataCategory.Image,
@@ -130,6 +170,7 @@ export const ArtCreateView = () => {
       );
 
       if (_nft) setNft(_nft);
+      console.log(metadata);
       setAlertMessage('');
     } catch (e: any) {
       setAlertMessage(e.message);
@@ -796,7 +837,7 @@ const InfoStep = (props: {
               console.log('Adding NFT attributes:', nftAttributes);
               props.setAttributes({
                 ...props.attributes,
-                attributes: nftAttributes,
+                // attributes: nftAttributes,
               });
 
               props.confirm();
@@ -1037,27 +1078,23 @@ const RoyaltiesStep = (props: {
               return;
             }
 
-            const creatorStructs: Creator[] = [
-              ...fixedCreators,
-              ...creators,
-            ].map(
+            const creatorStructs: Creator[] = props.attributes.creators!.map(
               c =>
                 new Creator({
-                  address: c.value,
-                  verified: c.value === publicKey?.toBase58(),
-                  share:
-                    royalties.find(r => r.creatorKey === c.value)?.amount ||
-                    Math.round(100 / royalties.length),
+                  address: c.address,
+                  verified: c.verified,
+                  share: c.share,
                 }),
             );
 
-            const share = creatorStructs.reduce(
-              (acc, el) => (acc += el.share),
-              0,
-            );
-            if (share > 100 && creatorStructs.length) {
-              creatorStructs[0].share -= share - 100;
-            }
+            // const share = creatorStructs.reduce(
+            //   (acc, el) => (acc += el.share),
+            //   0,
+            // );
+            // if (share > 100 && creatorStructs.length) {
+            //   creatorStructs[0].share -= share - 100;
+            // }
+
             props.setAttributes({
               ...props.attributes,
               creators: creatorStructs,

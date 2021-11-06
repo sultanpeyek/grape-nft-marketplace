@@ -40,7 +40,41 @@ export default class MetaplexDocument extends Document {
             href="/favicon-16x16.png"
           />
           <meta name="theme-color" content="#000000" />
-          <meta name="description" content="Metaplex NFT Marketplace" />
+          <meta
+            name="description"
+            content="High-quality AV Toilets NFT art builds on Solana chain."
+          />
+          <meta property="og:url" content="https://store.soilets.art/" />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="Soilets NFT - Store" />
+          <meta
+            property="og:description"
+            content="High-quality AV Toilets NFT art builds on Solana chain."
+          />
+          <meta
+            property="og:image"
+            itemProp="image"
+            content="https://store.soilets.art/og-image.png"
+          />
+          <meta
+            property="og:image:secure_url"
+            content="https://store.soilets.art/og-image.png"
+          />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@SoiletsNFT" />
+          <meta name="twitter:creator" content="@SoiletsNFT" />
+          <meta name="twitter:url" content="https://store.soilets.art/" />
+          <meta name="twitter:title" content="Soilets NFT - Store" />
+          <meta
+            name="twitter:description"
+            content="High-quality AV Toilets NFT art builds on Solana chain."
+          />
+          <meta
+            name="twitter:image"
+            content="https://store.soilets.art/og-image.png"
+          />
           <link rel="manifest" href="/manifest.json" />
           <link
             rel="stylesheet"
@@ -48,6 +82,27 @@ export default class MetaplexDocument extends Document {
             integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
             crossOrigin="anonymous"
           />
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-7W1V57ZCSZ"
+          />
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+              __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-7W1V57ZCSZ');
+        `,
+            }}
+          />
+          <style jsx>{`
+            html,
+            body {
+              font-family: 'gothammedium', sans-serif;
+            }
+          `}</style>
         </Head>
         <body>
           <Main />

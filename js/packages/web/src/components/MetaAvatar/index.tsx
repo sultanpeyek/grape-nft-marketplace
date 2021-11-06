@@ -10,23 +10,13 @@ const MetaAvatarItem = (props: {
 }) => {
   const { creator, size, alt } = props;
   const [noImage, setNoImage] = useState(false);
-  const image = creator.image || '';
+  const image = creator.image || '/assets/creator.jpeg';
 
   return (
     <Avatar
       alt={alt}
       size={size}
-      src={
-        noImage ? (
-          <Identicon
-            alt={alt}
-            address={creator.address}
-            style={{ width: size }}
-          />
-        ) : (
-          image
-        )
-      }
+      src={image}
       onError={() => {
         setNoImage(true);
         return false;
@@ -36,7 +26,7 @@ const MetaAvatarItem = (props: {
 };
 
 export const MetaAvatar = (props: {
-  creators?: Artist[];
+  creators?: Artist[] | any;
   showMultiple?: boolean;
   size?: number;
 }) => {
