@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import { Button, Card, Carousel, Col, List, Row, Skeleton } from 'antd';
 import { AuctionCard } from '../../components/AuctionCard';
 import { Connection } from '@solana/web3.js';
@@ -146,6 +146,10 @@ export const AuctionView = () => {
         gutter={[48, 0]}
         className="auction-mobile-container"
       >
+        {/* Temporary fix: delete soon */}
+        {id == 'B4fFCuRJXuH2V52n4g75Y1So9FDiJLzGgG3Gai7G9f4n' && (
+          <Redirect to="/" />
+        )}
         <Col span={24} className={'img-cont-500'}>
           <div className="auction-view" style={{ minHeight: 300 }}>
             <Carousel
@@ -275,6 +279,10 @@ export const AuctionView = () => {
   } else {
     return (
       <Row justify="center" ref={ref} gutter={[48, 0]}>
+        {/* Temporary fix: delete soon */}
+        {id == 'B4fFCuRJXuH2V52n4g75Y1So9FDiJLzGgG3Gai7G9f4n' && (
+          <Redirect to="/" />
+        )}
         <Col span={24} md={10} className={'img-cont-500'}>
           <div className="auction-view" style={{ minHeight: 300 }}>
             <Carousel
