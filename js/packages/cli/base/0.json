@@ -1,0 +1,35 @@
+{
+  "name": "Gamerplex OG Malachite #",
+  "symbol": "GMPX",
+  "description": "One of the first 1000 verified community members of Gamerplex!",
+  "seller_fee_basis_points": 800,
+  "image": "https://arweave.net/Iq6BM_yP7yCrDzICfcLMQ0RbtpXdMJOzgfOL0unr1NY?ext=png",
+  "animation_url": "https://arweave.net/cBJiqVYjmvhe4f6p8Gc-H1iQ6-MH5Vs-peCzatSSucU?ext=glb",
+  "attributes": [
+    { "trait_type": "Character", "value": "Gamerplex OG Malachite" }
+  ],
+  "external_url": "https://gamerplex.com",
+  "collection": {
+    "name": "Gamerplex OG",
+    "family": "Gamerplex OG"
+  },
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/Iq6BM_yP7yCrDzICfcLMQ0RbtpXdMJOzgfOL0unr1NY?ext=png",
+        "type": "image/png"
+      },
+      {
+        "uri": "https://arweave.net/cBJiqVYjmvhe4f6p8Gc-H1iQ6-MH5Vs-peCzatSSucU?ext=glb",
+        "type": "glb"
+      }
+    ],
+    "category": "vr",
+    "creators": [
+      {
+        "address": "4BSraGRWGkYDQAypRfithZcUUp9oDNMRqsDz8AYmawHd",
+        "share": 100
+      }
+    ]
+  }
+}

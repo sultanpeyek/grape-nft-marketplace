@@ -1,0 +1,33 @@
+{
+  "name": "Gamerplex OG Orchid #",
+  "symbol": "GMPX",
+  "description": "One of the first 1000 verified community members of Gamerplex!",
+  "seller_fee_basis_points": 800,
+  "image": "https://arweave.net/PqWZH4rNd0ETt2zzprXXf9GoP3F4aWu0iOUnB0v8pjE?ext=png",
+  "animation_url": "https://arweave.net/uJZ-HQEDbcSlY_norlft5o1Nnl9B2Hcfnk_I67sNC20?ext=glb",
+  "attributes": [{ "trait_type": "Character", "value": "Gamerplex OG Orchid" }],
+  "external_url": "https://gamerplex.com",
+  "collection": {
+    "name": "Gamerplex OG",
+    "family": "Gamerplex OG"
+  },
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PqWZH4rNd0ETt2zzprXXf9GoP3F4aWu0iOUnB0v8pjE?ext=png",
+        "type": "image/png"
+      },
+      {
+        "uri": "https://arweave.net/uJZ-HQEDbcSlY_norlft5o1Nnl9B2Hcfnk_I67sNC20?ext=glb",
+        "type": "glb"
+      }
+    ],
+    "category": "vr",
+    "creators": [
+      {
+        "address": "4BSraGRWGkYDQAypRfithZcUUp9oDNMRqsDz8AYmawHd",
+        "share": 100
+      }
+    ]
+  }
+}
