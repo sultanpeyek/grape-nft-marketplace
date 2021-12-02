@@ -1,6 +1,6 @@
 import * as anchor from '@project-serum/anchor';
 import FormData from 'form-data';
-import fs from 'fs';
+// import fs from 'fs';
 import path from 'path';
 import log from 'loglevel';
 import fetch from 'node-fetch';
@@ -65,7 +65,7 @@ export async function arweaveUpload(
 ) {
   const fsStat = await stat(image);
   const estimatedManifestSize = estimateManifestSize([
-    'image.png',
+    // 'image.png',
     'metadata.json',
   ]);
   const storageCost = await fetchAssetCostToStore([
@@ -95,10 +95,10 @@ export async function arweaveUpload(
   const data = new FormData();
   data.append('transaction', tx['txid']);
   data.append('env', env);
-  data.append('file[]', fs.createReadStream(image), {
-    filename: `image.png`,
-    contentType: 'image/png',
-  });
+  // data.append('file[]', fs.createReadStream(image), {
+  //   filename: `image.png`,
+  //   contentType: 'image/png',
+  // });
   data.append('file[]', manifestBuffer, 'metadata.json');
 
   const result = await upload(data, manifest, index);
@@ -106,14 +106,14 @@ export async function arweaveUpload(
   const metadataFile = result.messages?.find(
     m => m.filename === 'manifest.json',
   );
-  const imageFile = result.messages?.find(
-    m => m.filename === 'image.png',
-  );
+  // const imageFile = result.messages?.find(
+  //   m => m.filename === 'image.png',
+  // );
   if (metadataFile?.transactionId) {
     const link = `https://arweave.net/${metadataFile.transactionId}`;
-    const imageLink = `https://arweave.net/${imageFile.transactionId}?ext=png`;
+    // const imageLink = `https://arweave.net/${imageFile.transactionId}?ext=png`;
     log.debug(`File uploaded: ${link}`);
-    return [link, imageLink];
+    return [link /* imageLink */];
   } else {
     // @todo improve
     throw new Error(`No transaction ID for upload: ${index}`);

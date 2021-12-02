@@ -22,7 +22,7 @@ async function run() {
         fs.readFileSync(`${BASE_PATH}/${key}.json`, 'utf-8'),
       );
       const valName = val.name;
-      for (let i = 0; i < 250; i++) {
+      for (let i = 0; i < 105; i++) {
         val.name = valName + (i + 1);
         fs.writeFileSync(
           `${ASSETS_DIRECTORY}/${counter}.json`,

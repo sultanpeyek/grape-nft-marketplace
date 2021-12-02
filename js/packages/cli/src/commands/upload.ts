@@ -85,7 +85,7 @@ export async function upload(
           log.debug(`Processing file: ${i}`);
 
           let link = cacheContent?.items?.[index]?.link;
-          let imageLink = cacheContent?.items?.[index]?.imageLink;
+          // let imageLink = cacheContent?.items?.[index]?.imageLink;
           if (!link || !cacheContent.program.uuid) {
             if (i >= lastPrinted + tick || i === 0) {
               lastPrinted = i;
@@ -138,7 +138,7 @@ export async function upload(
             if (!link) {
               try {
                 if (storage === 'arweave') {
-                  [link, imageLink] = await arweaveUpload(
+                  [link /* imageLink */] = await arweaveUpload(
                     walletKeyPair,
                     anchorProgram,
                     env,
@@ -148,24 +148,24 @@ export async function upload(
                     index,
                   );
                 } else if (storage === 'ipfs') {
-                  [link, imageLink] = await ipfsUpload(
+                  [link /* imageLink */] = await ipfsUpload(
                     ipfsCredentials,
                     image,
                     manifestBuffer,
                   );
                 } else if (storage === 'aws') {
-                  [link, imageLink] = await awsUpload(
+                  [link /* imageLink */] = await awsUpload(
                     awsS3Bucket,
                     image,
                     manifestBuffer,
                   );
                 }
 
-                if (link && imageLink) {
+                if (link /* && imageLink */) {
                   log.debug('setting cache for ', index);
                   cacheContent.items[index] = {
                     link,
-                    imageLink,
+                    imageLink: manifest.image,
                     name: manifest.name,
                     onChain: false,
                   };
