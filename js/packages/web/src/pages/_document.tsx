@@ -54,11 +54,11 @@ export default class MetaplexDocument extends Document {
           <meta
             property="og:image"
             itemProp="image"
-            content="https://store.soilets.art/og-image-6th.jpg"
+            content="https://store.soilets.art/og-image-general.jpg"
           />
           <meta
             property="og:image:secure_url"
-            content="https://store.soilets.art/og-image-6th.jpg"
+            content="https://store.soilets.art/og-image-general.jpg"
           />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
@@ -73,7 +73,7 @@ export default class MetaplexDocument extends Document {
           />
           <meta
             name="twitter:image"
-            content="https://store.soilets.art/og-image-6th.jpg"
+            content="https://store.soilets.art/og-image-general.jpg"
           />
           <link rel="manifest" href="/manifest.json" />
           <link
