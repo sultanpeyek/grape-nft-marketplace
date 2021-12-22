@@ -102,7 +102,7 @@ export const mintNFT = async (
     attributes: metadata.attributes,
     external_url: metadata.external_url,
     collection: {
-      name: 'Soilets Batch #5',
+      name: 'Soilets Batch #8',
       family: 'Soilets',
     },
     properties: {

@@ -66,34 +66,35 @@ export const ArtCreateView = () => {
   const [step, setStep] = useState<number>(0);
   const [stepsVisible, setStepsVisible] = useState<boolean>(true);
   const [isMinting, setMinting] = useState<boolean>(false);
-  const [nft, setNft] =
-    useState<{ metadataAccount: StringPublicKey } | undefined>(undefined);
+  const [nft, setNft] = useState<
+    { metadataAccount: StringPublicKey } | undefined
+  >(undefined);
   const [files, setFiles] = useState<File[]>([]);
   const [attributes, setAttributes] = useState<IMetadataExtension>({
-    name: 'PLANET TOI: THE ORIGIN',
+    name: 'SOILETS BETTA X-3300',
     symbol: 'TOILET',
     description:
-      'After their appearance in the exhibition of Ciccago Empire that was held at the Planet of C*SXS, TOPIA-3000 was asked by a meta-curator to make a living maquette of their "3035-EXAR001". In order to expose the origin of this model, the curator was spesifically asked for the ancient looks of the fabrication, so in the next exhibition people can see how the ancestors of Planet TOI made this model. Back in the 35 years BC, before the imaginative disaster destroyed the whole world of Planet TOI. This model was fabricated in various sizes in order to supply Lilliputians and the Giants, also other species of human in other planets. This particular model was also used to supply all living resources in the TOI planet and it could also be the exchange currency for any trades during those  years. The model itself is trying to see another point of view in how crisis of beauty and authorian are still existing in the planet. TOPIA-3000 shows clearly that the model since its early creation was created as something that is sacred and cannot be underestimated as is. The maquette will be ready for the exhibition that will take place in 3036 along with other living maquettes that are created by art collectives in the metaverse. For the time, place, and further information of reservation will be announced later on via "METAX: THE META NEWSPAPERS" in early 3036. /// Soilets are digital collectibles of 50 unique audiovisual Toilets vibing on the Solana blockchain. As a homage to the greatest sanitation revolution in the past 200 years and as the symbol of the degradation of the inner self, 6 to 7 Toilets minted biweekly until the end of 2021 in the auction format. /// Visual by NeedMoreSauce & Audio by Xin Lie.',
+      'Trapped in a four-sided glass, Soilets Betta spends the rest of its life there without the desire of ever leaving. It knows that it belongs there. Everything seems fine both to Soilets Betta and anyone watching it from the outside. /// Soilets are digital collectibles of 50 unique audiovisual Toilets vibing on the Solana blockchain. As a homage to the greatest sanitation revolution in the past 200 years and as the symbol of the degradation of the inner self, 6 to 7 Toilets minted biweekly until the end of 2021 in the auction format. /// Visual by Betok_ & Audio by LOTUS FROM JAKARTA.',
     external_url: 'https://soilets.art',
     image: '',
     animation_url: undefined,
     attributes: [
       {
         trait_type: 'Toilet Type',
-        value: 'PLANET TOI: THE ORIGIN',
+        value: 'SOILETS BETTA X-3300',
       },
       {
         trait_type: 'Visual Artist',
-        value: 'NeedMoreSauce',
+        value: 'Betok_',
       },
       {
         trait_type: 'Audio Artist',
-        value: 'Xin Lie',
+        value: 'LOTUS FROM JAKARTA',
       },
       {
         display_type: 'number',
         trait_type: 'Batch',
-        value: 5,
+        value: 8,
       },
     ],
     seller_fee_basis_points: 1000,
@@ -109,12 +110,12 @@ export const ArtCreateView = () => {
         verified: false,
       },
       {
-        address: 'FXidtAQea287sXtQh2cNQuFVEopDSHTe4A98Dn3pvtad', // Visual Artist
+        address: 'HktVbbWvaD2eqGmkavv2qDYqvgkHpwmr7zV8Wx4giDVp', // Visual Artist
         share: 43,
         verified: false,
       },
       {
-        address: '3kTPfrfVa81om12ndJHQ3ENxW4H9WVHu6GiJxBPX4GzN', // Sound Artist
+        address: 'JBkQevuifDSS5G8hTWPKv72nV3mBY1Mo6hqHBAW4a4wn', // Sound Artist
         share: 28,
         verified: false,
       },
@@ -592,8 +593,11 @@ const UploadStep = (props: {
                   : mainFile && mainFile.name,
             });
             const url = await fetch(customURL).then(res => res.blob());
-            const files = [coverFile, mainFile, customURL ? new File([url], customURL) : '']
-              .filter(f => f) as File[];
+            const files = [
+              coverFile,
+              mainFile,
+              customURL ? new File([url], customURL) : '',
+            ].filter(f => f) as File[];
 
             props.setFiles(files);
             props.confirm();
